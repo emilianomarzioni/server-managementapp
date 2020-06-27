@@ -10,6 +10,10 @@ exports.crearTipo = async ( req,res) => {
 
     }
     try{
+        let tipo = await Tipo.findOne({titulo});
+    if(tipo){
+        return res.status(400).json({msg: ' el tipo ya existe'});
+    }
         const tipo = new Tipo(req.body);
         tipo.usuario = req.usuario.id;
         
@@ -30,4 +34,28 @@ exports.obtenerTipos = async (req,res) =>{
         res.status(500).send("Hubo un error");
     }
 
+}
+exports.eliminarTipo = async (req, res ) => {
+    try {
+        // check the ID 
+        let tipo = await Tipo.findById(req.params.id);
+
+        // valid movement?
+        if(!tipo) {
+            return res.status(404).json({msg: 'Tipo no encontrado'})
+        }
+
+        // valid creator?
+        if(tipo.usuario.toString() !== req.usuario.id ) {
+            return res.status(401).json({msg: 'No Autorizado'});
+        }
+
+        // delete
+        await Tipo.findOneAndRemove({ _id : req.params.id });
+        res.json({ msg: 'Movimiento eliminado '})
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error en el servidor')
+    }
 }

@@ -21,5 +21,11 @@ const UsuariosSchema = mongoose.Schema({
         type: Date,
         default: Date.now()
     },
+    cuentas_ahorro:{
+        type:[{name: String,
+            moneda:String }],
+        required:false,
+    }
+
 });
 module.exports = mongoose.model('Usuario',UsuariosSchema)

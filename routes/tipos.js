@@ -15,5 +15,8 @@ router.get('/',
     auth,
     tipoController.obtenerTipos
 );
-
+router.delete('/:id',
+    auth,
+    tipoController.eliminarTipo
+);
 module.exports = router;
