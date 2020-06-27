@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 exports.crearUsuario = async (req,res) => {
     //Check for errors
+
     const errores = validationResult(req);
     if(!errores.isEmpty()){
         return res.status(400).json({errores:errores.array()})
@@ -40,7 +41,7 @@ try{
         res.json({token});
     })
 
-    res.json({msg: 'Usuario creado correctamente'});
+    res.json({msg: 'Usuario creado correctamente',user:req.body});
 } catch(error){
     console.log(error);
     console.log("Error desde usuarioController")
