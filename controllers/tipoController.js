@@ -14,7 +14,7 @@ exports.crearTipo = async ( req,res) => {
     if(tipo){
         return res.status(400).json({msg: ' el tipo ya existe'});
     }
-        let tipo = new Tipo(req.body);
+        tipo = new Tipo(req.body);
         tipo.usuario = req.usuario.id;
         
         tipo.save();
