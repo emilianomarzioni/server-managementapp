@@ -9,6 +9,8 @@ exports.crearTipo = async ( req,res) => {
         res.status(500).send("Hubo un error en la creación del Tipo");
 
     }
+    const { titulo} = req.body;
+
     try{
         let tipo = await Tipo.findOne({titulo});
     if(tipo){
