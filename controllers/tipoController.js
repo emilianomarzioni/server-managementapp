@@ -12,7 +12,7 @@ exports.crearTipo = async ( req,res) => {
     const { titulo} = req.body;
 
     try{
-        let tipo = await Tipo.findOne({titulo});
+        let tipo = await Tipo.findOne({titulo,usuario:req.usuario.id});
     if(tipo){
         return res.status(400).json({msg: ' el tipo ya existe'});
     }

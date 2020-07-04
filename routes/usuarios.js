@@ -11,6 +11,10 @@ router.post('/',
     
 ],
 usuarioController.crearUsuario
-)
+);
+/* router.put('/:id',
+auth,
+usuarioController.agregarCuenta
+) */
 
 module.exports = router;
