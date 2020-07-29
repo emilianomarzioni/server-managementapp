@@ -50,3 +50,42 @@ try{
 
 
 }
+exports.agregarCuenta = async ( req,res) => {
+    /* //Check for errors
+    const errores = validationResult(req);
+    if(!errores.isEmpty()){
+        return res.status(400).json({errores:errores.array()})
+    }
+    
+    //Extract info from mov
+    const { titulo,moneda} = req.body;
+    const nuevacuenta = {name:titulo,moneda:moneda};
+
+    if(titulo && monto && moneda && tipo && fecha && modo ){
+        nuevacuenta.detalle = detalle;
+        nuevacuenta.monto = monto;
+        nuevacuenta.moneda = moneda;
+        nuevacuenta.tipo = tipo;
+        nuevacuenta.fecha = fecha;
+        nuevacuenta.modo = modo;
+    }
+    try{
+            //check the ID
+            let usuario = await Usuario.findById(req.params.id);
+
+            if(!usuario){
+                return res.status(404).send("Usuario no encontrado")
+            }
+            //If mov exist
+            if(movimiento.usuario.toString() !== req.usuario.id){
+                return res.status(401).json({msg:"No autorizado"});
+            }
+            //If is creator true
+            movimiento = await Movimiento.findByIdAndUpdate({_id:req.params.id},{$set:nuevacuenta},{new: true});
+
+            res.json({movimiento});
+    }catch(error){
+        console.log(error);
+        res.status(500).send("Hubo un error");
+    } */
+}

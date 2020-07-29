@@ -19,7 +19,7 @@ app.use('/api/usuarios',require('./routes/usuarios'));
 app.use('/api/auth',require('./routes/auth'));
 app.use('/api/tipos',require('./routes/tipos'));
 app.use('/api/movimientos',require('./routes/movimientos'));
-//app.use('/api/tareas',require('./routes/tareas'));
+app.use('/api/creditos',require('./routes/creditos'));
 
 //start server
 app.listen(port,'0.0.0.0', () => {
